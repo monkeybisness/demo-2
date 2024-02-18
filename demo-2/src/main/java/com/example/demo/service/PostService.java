@@ -11,15 +11,10 @@ import java.util.List;
 public class PostService {
 
     private List<Post> posts = new ArrayList<>();
-
-    public PostService(){
-        posts.add(new Post("Hello world!!!", new Date()));
-        posts.add(new Post("!!!", new Date()));
-        posts.add(new Post("!!!", new Date()));
-    }
+    private Long index = 0L;
 
     public void create(String text) {
-        posts.add(new Post(text, new Date()));
+        posts.add(new Post(index++,text, new Date()));
     }
     public List<Post> listAllPosts(){
         return posts;
